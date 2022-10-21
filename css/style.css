@@ -37,8 +37,9 @@ h1 {
   color: black;
   font-weight: bold;
   font-size: 120px;
+  line-height: 70px;
   text-transform: uppercase;
-  margin: 0px;
+  margin-bottom: 20px;
 }
 
 .sub-heading {
@@ -99,6 +100,7 @@ h3 {
 }
 
 h4 {
+  color: #A52F3B;
   font-size: 12px;
   font-weight: bold;
   letter-spacing: 3px;
@@ -130,6 +132,8 @@ a:focus {
 
 /* hover min css */
 .hvr-bounce-to-bottom:before,
+.hvr-bounce-to-right:before,
+.hvr-bounce-to-left:before,
 .hvr-bounce-to-top:before {
   background-color: black;
 }
@@ -142,7 +146,6 @@ a:focus {
 #menu,
 #team,
 #gallery,
-#contact,
 #cta,
 #review {
   color: #656565;
@@ -286,6 +289,10 @@ a:focus {
 .btn:hover,
 .btn:focus {
   color: white;
+}
+
+.pt-1 {
+  padding-top: 15px
 }
 
 .mt-3 {
@@ -473,7 +480,8 @@ a:focus {
 
 /* Menu section */
 #menu .media {
-  padding-bottom: 20px;
+  margin-bottom: 20px;
+  width: 100%;
 }
 
 #menu .media-object img {
@@ -719,7 +727,15 @@ a:focus {
   top: 0;
 }
 
-/* Contact section  */
+.contact-form {
+  display: flex;
+  justify-content: center;
+  padding-top: 100px;
+  padding-bottom: 0px;
+  margin-bottom: 0px;
+}
+
+/* Call To Action section  */
 #cta {
   background: url('../images/backgrounds/bg10.jpg') 50% 0 repeat-y fixed;
   -webkit-background-size: cover;
@@ -801,13 +817,14 @@ footer strong {
 /* copyright section  */
 #copyright p {
   padding: 20px;
+  margin: 0px;
 }
 
 .gototop {
   background-color: #242424;
   color: #ffffff;
   font-size: 40px;
-  padding: 20px 32px;
+  padding: 10px 15px;
   text-align: right;
   transition: all 0.4s ease-in-out;
 }
@@ -815,6 +832,55 @@ footer strong {
 .gototop:hover {
   background-color: #A52F3B;
   color: #fff;
+}
+
+/* Ingredients list section */
+#menu .media-body {
+  width: 100%;
+  position: relative;
+}
+
+#menu .media:hover .media-description{
+  display: none;
+}
+
+#menu .ingredients-div {
+  display: none;
+}
+
+#menu .media:hover .ingredients-div {
+  display: block;
+}
+
+#menu .media:hover .media-heading {
+  color: #A52F3B;
+}
+
+.ingredients {
+  padding: 0;
+  margin: 0;
+  font-weight: 400;
+  font-size: 15px;
+}
+
+.ingredients li {
+  list-style: none;
+  display: inline-block;
+  font-size: 13px;
+  font-weight: 200;
+}
+
+.ingredients li a {
+  color:rgb(240, 240, 240);
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: 200;
+  text-align: center;
+}
+
+.ingredients li a:hover {
+  color: #A52F3B;
+  font-weight: 400;
 }
 
 /* social icon section  */
