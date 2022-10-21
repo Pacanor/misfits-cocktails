@@ -86,7 +86,7 @@ $(document).ready(function() {
   /*  smoothscroll
   ----------------------------------------------*/
    $(function() {
-        $('#home a, .navbar-default a').bind('click', function(event) {
+        $('#home a, .navbar-default a, #team a, .footer-links a, #copyright a').bind('click', function(event) {
             var $anchor = $(this);
             $('html, body').stop().animate({
                 scrollTop: $($anchor.attr('href')).offset().top - 49
