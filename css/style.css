@@ -44,7 +44,7 @@ h1 {
   color: black;
   font-weight: 200;
   font-size: 40px;
-  letter-spacing: 24px;
+  letter-spacing: 25px;
   margin: 0px;
   padding-bottom: 10px;
 }
@@ -970,7 +970,12 @@ footer strong {
 @media (max-width: 900px) {
 
   h1 {
-    font-size: 70px;
+    font-size: 85px;
+  }
+
+  .sub-heading {
+    font-size: 30px;
+    letter-spacing: 18px;
   }
 
 }
@@ -996,14 +1001,6 @@ footer strong {
 
 @media (max-width: 650px) {
 
-  .navbar-brand>img {
-    display: block;
-  }
-
-  .brand-name {
-    display: none;
-  }
-
   #home {
     height: 100vh;
   }
@@ -1013,7 +1010,8 @@ footer strong {
   }
 
   .sub-heading {
-    font-size: 30px;
+    font-size: 25px;
+    letter-spacing: 12px;
   }
 
   h2 {
@@ -1055,7 +1053,20 @@ footer strong {
 
 }
 
-@media (max-width: 1100px) {
+@media (max-width: 380px) {
+
+  .navbar-brand>img {
+    display: block;
+  }
+
+  .brand-name {
+    display: none;
+  }
+
+}
+
+
+@media (max-width: 1101px) {
 
   .navbar-default .navbar-brand {
     line-height: 20px;
