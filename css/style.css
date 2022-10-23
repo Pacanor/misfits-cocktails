@@ -327,6 +327,21 @@ a:focus {
   letter-spacing: 2px;
   line-height: 40px;
   margin: 0;
+  padding: 0;
+}
+
+.navbar-brand>img {
+  position: relative;
+  padding: 5px 15px 0px 15px;
+  display: none;
+  height: 45px;
+  /* width: 40px; */
+}
+
+.brand-name {
+  display: block;
+  position: relative;
+  padding: 15px;
 }
 
 .navbar-default .navbar-nav li a {
@@ -840,7 +855,7 @@ footer strong {
   position: relative;
 }
 
-#menu .media:hover .media-description{
+#menu .media:hover .media-description {
   display: none;
 }
 
@@ -871,7 +886,7 @@ footer strong {
 }
 
 .ingredients li a {
-  color:rgb(240, 240, 240);
+  color: rgb(240, 240, 240);
   text-decoration: none;
   font-size: 13px;
   font-weight: 200;
@@ -980,7 +995,19 @@ footer strong {
 
 }
 
+.navbar-brand>img {
+  display: none;
+}
+
 @media (max-width: 650px) {
+
+  .navbar-brand>img {
+    display: block;
+  }
+
+  .brand-name {
+    display: none;
+  }
 
   #home {
     height: 100vh;
