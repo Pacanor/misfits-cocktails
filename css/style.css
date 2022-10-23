@@ -2,8 +2,6 @@
 
 Misfits Cocktails v1
 
-http://www.tooplate.com/view/2083-steak-house
-
 */
 
 body {
@@ -206,10 +204,14 @@ a:focus {
 .sk-spinner-pulse {
   width: 60px;
   height: 60px;
-  background-color: #222;
   border-radius: 100%;
   -webkit-animation: sk-pulseScaleOut 1s infinite ease-in-out;
   animation: sk-pulseScaleOut 1s infinite ease-in-out;
+}
+
+.icon-spinner {
+  max-width: 80px;
+  max-height: 80px;
 }
 
 @-webkit-keyframes sk-pulseScaleOut {
@@ -270,6 +272,16 @@ a:focus {
   height: 100vh;
 }
 
+.flex {
+  display: flex;
+  justify-content: center;
+}
+
+.mw-90 {
+  padding: 0 5% 0 5%;
+  margin: auto;
+}
+
 .btn {
   background: transparent;
   border: 3px solid black;
@@ -325,7 +337,7 @@ a:focus {
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 2px;
-  line-height: 40px;
+  line-height: 50px;
   margin: 0;
   padding: 0;
 }
@@ -937,7 +949,7 @@ footer strong {
     height: 65vh;
   }
 
-  #feature .col-md-4:last-child,
+  #feature .col-md-4,
   #about .col-md-4 {
     margin-top: 42px;
   }
@@ -963,24 +975,7 @@ footer strong {
 
 }
 
-
-@media (max-width: 768px) {
-
-  .navbar-default .navbar-brand {
-    line-height: 46px;
-  }
-
-}
-
 @media (max-width: 767px) {
-
-  .navbar-default .navbar-brand {
-    line-height: 15px;
-  }
-
-  .navbar-default .navbar-nav li a {
-    line-height: 30px;
-  }
 
   #feature .col-md-4,
   #about .col-md-5,
@@ -1017,6 +1012,10 @@ footer strong {
     font-size: 60px;
   }
 
+  .sub-heading {
+    font-size: 30px;
+  }
+
   h2 {
     font-size: 30px;
   }
@@ -1039,7 +1038,6 @@ footer strong {
 
   #menu .media-object img {
     width: 100%;
-    padding-bottom: 14px;
   }
 
   #menu .media-object span.menu-price {
@@ -1047,8 +1045,68 @@ footer strong {
     left: 6%;
   }
 
+  .iso-box {
+    width: inherit;
+  }
+
   footer {
     text-align: center;
   }
 
+}
+
+@media (max-width: 1100px) {
+
+  .navbar-default .navbar-brand {
+    line-height: 20px;
+  }
+
+  .navbar-header {
+    float: none;
+  }
+
+  .navbar-left,
+  .navbar-right {
+    float: none !important;
+  }
+
+  .navbar-toggle {
+    display: block;
+  }
+
+  .navbar-collapse {
+    border-top: 1px solid transparent;
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  }
+
+  .navbar-fixed-top {
+    top: 0;
+    border-width: 0 0 1px;
+  }
+
+  .navbar-collapse.collapse {
+    display: none !important;
+  }
+
+  .navbar-nav {
+    float: none !important;
+    margin-top: 7.5px;
+  }
+
+  .navbar-nav>li {
+    float: none;
+  }
+
+  .navbar-nav>li>a {
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+
+  .collapse.in {
+    display: block !important;
+  }
+}
+
+.w-95 {
+  width: 95%;
 }
