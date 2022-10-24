@@ -2,8 +2,6 @@
 
 Misfits Cocktails v1
 
-http://www.tooplate.com/view/2083-steak-house
-
 */
 
 body {
@@ -39,15 +37,16 @@ h1 {
   color: black;
   font-weight: bold;
   font-size: 120px;
+  line-height: 70px;
   text-transform: uppercase;
-  margin: 0px;
+  margin-bottom: 20px;
 }
 
 .sub-heading {
   color: black;
   font-weight: 200;
   font-size: 40px;
-  letter-spacing: 24px;
+  letter-spacing: 25px;
   margin: 0px;
   padding-bottom: 10px;
 }
@@ -101,6 +100,7 @@ h3 {
 }
 
 h4 {
+  color: #A52F3B;
   font-size: 12px;
   font-weight: bold;
   letter-spacing: 3px;
@@ -132,6 +132,8 @@ a:focus {
 
 /* hover min css */
 .hvr-bounce-to-bottom:before,
+.hvr-bounce-to-right:before,
+.hvr-bounce-to-left:before,
 .hvr-bounce-to-top:before {
   background-color: black;
 }
@@ -144,7 +146,6 @@ a:focus {
 #menu,
 #team,
 #gallery,
-#contact,
 #cta,
 #review {
   color: #656565;
@@ -205,10 +206,14 @@ a:focus {
 .sk-spinner-pulse {
   width: 60px;
   height: 60px;
-  background-color: #222;
   border-radius: 100%;
   -webkit-animation: sk-pulseScaleOut 1s infinite ease-in-out;
   animation: sk-pulseScaleOut 1s infinite ease-in-out;
+}
+
+.icon-spinner {
+  max-width: 80px;
+  max-height: 80px;
 }
 
 @-webkit-keyframes sk-pulseScaleOut {
@@ -269,6 +274,16 @@ a:focus {
   height: 100vh;
 }
 
+.flex {
+  display: flex;
+  justify-content: center;
+}
+
+.mw-90 {
+  padding: 0 5% 0 5%;
+  margin: auto;
+}
+
 .btn {
   background: transparent;
   border: 3px solid black;
@@ -288,6 +303,10 @@ a:focus {
 .btn:hover,
 .btn:focus {
   color: white;
+}
+
+.pt-1 {
+  padding-top: 15px
 }
 
 .mt-3 {
@@ -320,8 +339,23 @@ a:focus {
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 2px;
-  line-height: 40px;
+  line-height: 50px;
   margin: 0;
+  padding: 0;
+}
+
+.navbar-brand>img {
+  position: relative;
+  padding: 5px 15px 0px 15px;
+  display: none;
+  height: 45px;
+  /* width: 40px; */
+}
+
+.brand-name {
+  display: block;
+  position: relative;
+  padding: 15px;
 }
 
 .navbar-default .navbar-nav li a {
@@ -475,7 +509,8 @@ a:focus {
 
 /* Menu section */
 #menu .media {
-  padding-bottom: 20px;
+  margin-bottom: 20px;
+  width: 100%;
 }
 
 #menu .media-object img {
@@ -697,8 +732,8 @@ a:focus {
 }
 
 .footer-logo {
-  width: 100%;
-  height: 250px;
+  max-width: 100%;
+  height: 180px;
   display: block;
   object-fit: cover;
 }
@@ -721,7 +756,15 @@ a:focus {
   top: 0;
 }
 
-/* Contact section  */
+.contact-form {
+  display: flex;
+  justify-content: center;
+  padding-top: 100px;
+  padding-bottom: 0px;
+  margin-bottom: 0px;
+}
+
+/* Call To Action section  */
 #cta {
   background: url('../images/backgrounds/bg10.jpg') 50% 0 repeat-y fixed;
   -webkit-background-size: cover;
@@ -781,8 +824,8 @@ a:focus {
 footer {
   background-color: #141414;
   color: #757575;
-  padding-top: 100px;
-  padding-bottom: 100px;
+  padding-top: 50px;
+  padding-bottom: 50px;
 }
 
 footer h3 {
@@ -803,13 +846,14 @@ footer strong {
 /* copyright section  */
 #copyright p {
   padding: 20px;
+  margin: 0px;
 }
 
 .gototop {
   background-color: #242424;
   color: #ffffff;
   font-size: 40px;
-  padding: 20px 32px;
+  padding: 10px 15px;
   text-align: right;
   transition: all 0.4s ease-in-out;
 }
@@ -817,6 +861,55 @@ footer strong {
 .gototop:hover {
   background-color: #A52F3B;
   color: #fff;
+}
+
+/* Ingredients list section */
+#menu .media-body {
+  width: 100%;
+  position: relative;
+}
+
+#menu .media:hover .media-description {
+  display: none;
+}
+
+#menu .ingredients-div {
+  display: none;
+}
+
+#menu .media:hover .ingredients-div {
+  display: block;
+}
+
+#menu .media:hover .media-heading {
+  color: #A52F3B;
+}
+
+.ingredients {
+  padding: 0;
+  margin: 0;
+  font-weight: 400;
+  font-size: 15px;
+}
+
+.ingredients li {
+  list-style: none;
+  display: inline-block;
+  font-size: 13px;
+  font-weight: 200;
+}
+
+.ingredients li a {
+  color: rgb(240, 240, 240);
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: 200;
+  text-align: center;
+}
+
+.ingredients li a:hover {
+  color: #A52F3B;
+  font-weight: 400;
 }
 
 /* social icon section  */
@@ -858,7 +951,7 @@ footer strong {
     height: 65vh;
   }
 
-  #feature .col-md-4:last-child,
+  #feature .col-md-4,
   #about .col-md-4 {
     margin-top: 42px;
   }
@@ -879,29 +972,17 @@ footer strong {
 @media (max-width: 900px) {
 
   h1 {
-    font-size: 70px;
+    font-size: 85px;
   }
 
-}
-
-
-@media (max-width: 768px) {
-
-  .navbar-default .navbar-brand {
-    line-height: 46px;
+  .sub-heading {
+    font-size: 30px;
+    letter-spacing: 18px;
   }
 
 }
 
 @media (max-width: 767px) {
-
-  .navbar-default .navbar-brand {
-    line-height: 15px;
-  }
-
-  .navbar-default .navbar-nav li a {
-    line-height: 30px;
-  }
 
   #feature .col-md-4,
   #about .col-md-5,
@@ -916,6 +997,10 @@ footer strong {
 
 }
 
+.navbar-brand>img {
+  display: none;
+}
+
 @media (max-width: 650px) {
 
   #home {
@@ -924,6 +1009,11 @@ footer strong {
 
   h1 {
     font-size: 60px;
+  }
+
+  .sub-heading {
+    font-size: 25px;
+    letter-spacing: 12px;
   }
 
   h2 {
@@ -948,7 +1038,6 @@ footer strong {
 
   #menu .media-object img {
     width: 100%;
-    padding-bottom: 14px;
   }
 
   #menu .media-object span.menu-price {
@@ -956,8 +1045,81 @@ footer strong {
     left: 6%;
   }
 
+  .iso-box {
+    width: inherit;
+  }
+
   footer {
     text-align: center;
   }
 
+}
+
+@media (max-width: 380px) {
+
+  .navbar-brand>img {
+    display: block;
+  }
+
+  .brand-name {
+    display: none;
+  }
+
+}
+
+
+@media (max-width: 1101px) {
+
+  .navbar-default .navbar-brand {
+    line-height: 20px;
+  }
+
+  .navbar-header {
+    float: none;
+  }
+
+  .navbar-left,
+  .navbar-right {
+    float: none !important;
+  }
+
+  .navbar-toggle {
+    display: block;
+  }
+
+  .navbar-collapse {
+    border-top: 1px solid transparent;
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  }
+
+  .navbar-fixed-top {
+    top: 0;
+    border-width: 0 0 1px;
+  }
+
+  .navbar-collapse.collapse {
+    display: none !important;
+  }
+
+  .navbar-nav {
+    float: none !important;
+    margin-top: 7.5px;
+  }
+
+  .navbar-nav>li {
+    float: none;
+  }
+
+  .navbar-nav>li>a {
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+
+  .collapse.in {
+    display: block !important;
+  }
+}
+
+.w-95 {
+  width: 95%;
 }
