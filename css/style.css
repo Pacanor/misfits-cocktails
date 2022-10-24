@@ -20,7 +20,9 @@ html {
   font-size: 100%;
 }
 
-
+.hide {
+  display: none;
+}
 /* Typography */
 h1,
 h2,
