@@ -102,10 +102,10 @@ $(document).ready(function() {
   $(function(){
     jQuery(document).ready(function() {
     $('#home').backstretch([
-       "images/backgrounds/bg4.jpg", 
-       "images/backgrounds/bg2.jpg", 
+       "images/cocktails/2-min-min.png", 
+       "images/cocktails/fotor6.jpg", 
        "images/backgrounds/bg5.jpg", 
-       "images/backgrounds/bg10.jpg", 
+       "images/cocktails/fotor10.jpg", 
         ],  {duration: 3000, fade: 750});
     });
   })
