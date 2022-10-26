@@ -894,6 +894,14 @@ footer strong {
   color: #A52F3B;
 }
 
+#menu .media:hover .mocktail-price{
+  color:white;
+}
+
+.mocktail-price{
+  font-size:15px;
+}
+
 .ingredients {
   padding: 0;
   margin: 0;
@@ -902,6 +910,7 @@ footer strong {
 }
 
 .ingredients li {
+  color: rgb(210, 210, 210);
   list-style: none;
   display: inline-block;
   font-size: 13px;
@@ -909,7 +918,7 @@ footer strong {
 }
 
 .ingredients li a {
-  color: rgb(240, 240, 240);
+  color: rgb(210, 210, 210);
   text-decoration: none;
   font-size: 13px;
   font-weight: 200;
