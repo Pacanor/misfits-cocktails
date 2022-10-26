@@ -92,7 +92,7 @@ h3 {
   font-size: 20px;
   line-height: 26px;
   letter-spacing: 1px;
-  padding-bottom: 10px;
+  /* padding-bottom: 10px; */
 }
 
 #menu h3 {
@@ -524,12 +524,13 @@ a:focus {
 #menu .media-object span.menu-price {
   position: absolute;
   background-color: #ffffff;
+  opacity: 60%;
   color: #222;
   font-size: 20px;
   font-weight: bold;
   padding: 6px 20px;
-  top: 50%;
-  left: 3%;
+  bottom: 5px;
+  left: 5px;
 }
 
 
@@ -1048,10 +1049,6 @@ footer strong {
     width: 100%;
   }
 
-  #menu .media-object span.menu-price {
-    top: 30%;
-    left: 6%;
-  }
 
   .iso-box {
     width: inherit;
