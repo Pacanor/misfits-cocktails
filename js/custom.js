@@ -140,8 +140,11 @@ $(document).ready(function() {
   $('#gallery .col-md-4 a').nivoLightbox({
         effect: 'fadeScale',
     });
+  /* Cards View
+  -------------------------------------------------*/
 
 
+//pagination for the cardview
   /* wow
   -------------------------------*/
   new WOW({ mobile: false }).init();

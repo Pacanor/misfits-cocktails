@@ -741,6 +741,7 @@ a:focus {
   height: 180px;
   display: block;
   object-fit: cover;
+  object-position: -7px -6px;
 }
 
 .missing-logo {
@@ -1141,3 +1142,51 @@ footer strong {
 .w-95 {
   width: 95%;
 }
+
+/*cardview*/
+.septoberfest_cape_to_cairo,.mindMasters_game_night,.novare_pinnacle_mall_food_market,.shaarz_cosmetics_product_launch_east_park_mall,
+.the_market_levy_junction_mall, .absa_end_of_year_2022, .absa_end_of_year_2024, .christmas_eve_party_19th_hole, .lusaka_night_market_leopards_hill_mall,
+.womens_march_2023{
+  opacity: 1;
+  min-height: 0px; /* enough to show content */
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.septoberfest_cape_to_cairo_toggle,.mindMasters_game_night_events_toggle,.novare_pinnacle_mall_food_market_events_toggle
+,.shaarz_cosmetics_product_launch_east_park_mall_events_toggle,.the_market_levy_junction_mall_events_toggle, .absa_end_of_year_2022_events_toggle,.absa_end_of_year_2024_events_toggle,.christmas_eve_party_19th_hole_events_toggle,
+.lusaka_night_market_leopards_hill_mall_events_toggle,.womens_march_2023_events_toggle {
+  opacity: 0;
+  max-height: 0;
+  pointer-events: none;
+}
+
+/*folder highlights*/
+#gallery .septoberfest_cape_to_cairo_events .gallery-overlay, #gallery .mindMasters_game_night_events .gallery-overlay,
+#gallery .novare_pinnacle_mall_food_market_events .gallery-overlay,#gallery .shaarz_cosmetics_product_launch_east_park_mall_events .gallery-overlay,
+#gallery .the_market_levy_junction_mall_events .gallery-overlay,#gallery .absa_end_of_year_2022_events .gallery-overlay
+,#gallery .absa_end_of_year_2024_events .gallery-overlay
+,#gallery .christmas_eve_party_19th_hole_events .gallery-overlay
+,#gallery .lusaka_night_market_leopards_hill_mall_events .gallery-overlay
+,#gallery .womens_march_2023_events .gallery-overlay{
+  opacity: 0.9;
+}
+
+#gallery .active .gallery-overlay{
+  background: #555;
+}
+
+
+/*pagination*/
+  #pagination .page-btn {
+    border: none;
+    background-color: #eee;
+    color: #333;
+    border-radius: 4px;
+    font-weight: bold;
+  }
+
+  #pagination .page-btn:hover {
+    background-color: #555;
+    color: white;
+  }
