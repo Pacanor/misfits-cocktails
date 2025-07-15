@@ -166,8 +166,15 @@
       <div class="row">
 
         <div class="col-md-offset-1 col-md-10 col-sm-8 col-xs-8 text-center">
-          <p>Copyright © 2022 <span itemprop="legalName">Misfits Cocktails Ltd</span> - Designed by Digital Polaroid
-            Technologies Ltd</p>
+          <p>
+            Copyright © <span id="year"></span>
+            <span itemprop="legalName">Misfits Cocktails Ltd</span> -
+            Designed by Digital Polaroid Technologies Ltd
+          </p>
+
+          <script>
+            document.getElementById("year").textContent = new Date().getFullYear();
+          </script>
         </div>
 
         <div class="col-md-1 col-sm-2 text-right">

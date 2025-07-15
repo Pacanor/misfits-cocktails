@@ -142,6 +142,137 @@ $(document).ready(function() {
     });
   /* Cards View
   -------------------------------------------------*/
+ function setupPagination(containerSelector) {
+  const container = document.querySelector(containerSelector);
+  if (!container) return;
+
+  const row = container.querySelector('.row');
+  const items = row.querySelectorAll('.iso-box.events');
+  const itemsPerPage = 9;
+  const totalPages = Math.ceil(items.length / itemsPerPage);
+  let currentPage = 1;
+
+  // Remove old pagination if exists
+  const oldPagination = container.querySelector("#pagination");
+  if (oldPagination) oldPagination.remove();
+
+  const paginationContainer = document.createElement("div");
+  paginationContainer.id = "pagination";
+  paginationContainer.style.textAlign = "center";
+  paginationContainer.style.marginTop = "20px";
+
+  function showPage(page) {
+    items.forEach((item, index) => {
+      item.style.display =
+        index >= (page - 1) * itemsPerPage && index < page * itemsPerPage
+          ? "block"
+          : "none";
+    });
+  }
+
+  function createPagination() {
+    paginationContainer.innerHTML = "";
+    for (let i = 1; i <= totalPages; i++) {
+      const button = document.createElement("button");
+      button.innerText = i;
+      button.className = "page-btn";
+      button.style.margin = "0 5px";
+      button.style.padding = "5px 10px";
+      button.style.cursor = "pointer";
+
+      if (i === currentPage) {
+        button.style.backgroundColor = "#333";
+        button.style.color = "#fff";
+      }
+
+      button.addEventListener("click", () => {
+        currentPage = i;
+        showPage(currentPage);
+        createPagination();
+      });
+
+      paginationContainer.appendChild(button);
+    }
+  }
+
+  showPage(currentPage);
+  createPagination();
+  row.after(paginationContainer);
+}
+  const buttons = [
+    {
+      trigger: '.absa_end_of_year_2022_events',
+      target: '.absa_end_of_year_2022',
+      toggleClass: 'absa_end_of_year_2022_events_toggle'
+    },
+    {
+      trigger: '.absa_end_of_year_2024_events',
+      target: '.absa_end_of_year_2024',
+      toggleClass: 'absa_end_of_year_2024_events_toggle'
+    },
+    {
+      trigger: '.christmas_eve_party_19th_hole_events',
+      target: '.christmas_eve_party_19th_hole',
+      toggleClass: 'christmas_eve_party_19th_hole_events_toggle'
+    },
+     {
+      trigger: '.lusaka_night_market_leopards_hill_mall_events',
+      target: '.lusaka_night_market_leopards_hill_mall',
+      toggleClass: 'lusaka_night_market_leopards_hill_mall_events_toggle'
+    },
+    {
+      trigger: '.womens_march_2023_events',
+      target: '.womens_march_2023',
+      toggleClass: 'womens_march_2023_events_toggle'
+    },
+    {
+      trigger: '.septoberfest_cape_to_cairo_events',
+      target: '.septoberfest_cape_to_cairo',
+      toggleClass: 'septoberfest_cape_to_cairo_toggle'
+    },
+    {
+      trigger: '.mindMasters_game_night_events',
+      target: '.mindMasters_game_night',
+      toggleClass: 'mindMasters_game_night_events_toggle'
+    },
+    {
+      trigger: '.novare_pinnacle_mall_food_market_events',
+      target: '.novare_pinnacle_mall_food_market',
+      toggleClass: 'novare_pinnacle_mall_food_market_events_toggle'
+    },
+    {
+      trigger: '.shaarz_cosmetics_product_launch_east_park_mall_events',
+      target: '.shaarz_cosmetics_product_launch_east_park_mall',
+      toggleClass: 'shaarz_cosmetics_product_launch_east_park_mall_events_toggle'
+    },
+    {
+      trigger: '.the_market_levy_junction_mall_events',
+      target: '.the_market_levy_junction_mall',
+      toggleClass: 'the_market_levy_junction_mall_events_toggle'
+    },
+  ];
+
+  buttons.forEach(({ trigger, target, toggleClass }) => {
+    const triggerEl = document.querySelector(trigger);
+    const targetEl = document.querySelector(target);
+
+    triggerEl.addEventListener('click', () => {
+      const isActive = triggerEl.classList.contains('active');
+
+      // Hide all and remove active classes
+      buttons.forEach(({ trigger: t, target: tg, toggleClass: tc }) => {
+        document.querySelector(t).classList.remove('active');
+        document.querySelector(tg).classList.add(tc);
+      });
+
+      if (!isActive) {
+        triggerEl.classList.add('active');
+        targetEl.classList.remove(toggleClass);
+        setupPagination(target); // 🎯 Apply pagination to active group
+      }
+    });
+  });
+
 
 
 //pagination for the cardview

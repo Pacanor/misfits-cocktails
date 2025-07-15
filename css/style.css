@@ -1169,7 +1169,8 @@ footer strong {
 ,#gallery .christmas_eve_party_19th_hole_events .gallery-overlay
 ,#gallery .lusaka_night_market_leopards_hill_mall_events .gallery-overlay
 ,#gallery .womens_march_2023_events .gallery-overlay{
-  opacity: 0.9;
+  background-color: black;
+  opacity: 0.8;
 }
 
 #gallery .active .gallery-overlay{
@@ -1189,4 +1190,32 @@ footer strong {
   #pagination .page-btn:hover {
     background-color: #555;
     color: white;
+  }
+  .events_container_header{
+    font-size: 18px;
+    line-height: 25px;
+  }
+  /*view button*/
+
+  .view_button{
+    background: transparent;
+    border-radius: 5px;
+    border: 1px solid white;
+    margin-top: 10px;
+    opacity: 0;
+    transition: all 1s ease-in-out;
+   
+  
+    text-align: center;
+  }
+  #gallery .gallery-thumb .gallery-overlay .has_album{
+    transform: translate(-50%, -23%);
+    transition: all 1s ease-in-out;
+    text-transform: capitalize;
+  }
+  #gallery .gallery-thumb:hover .view_button {
+     opacity: 0.9;
+  }
+  #gallery .gallery-thumb:hover .gallery-overlay .has_album{
+     transform: translate(-50%, -50%);
   }
