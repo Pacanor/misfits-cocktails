@@ -99,16 +99,59 @@ $(document).ready(function() {
 
   /* home slideshow section
   -----------------------------------------------*/
-  $(function(){
-    jQuery(document).ready(function() {
-    $('#home').backstretch([
-       "images/cocktails/2-min-min.png", 
-       "images/cocktails/fotor6.jpg", 
-       "images/backgrounds/bg5.jpg", 
-       "images/cocktails/fotor10.jpg", 
-        ],  {duration: 3000, fade: 750});
-    });
-  })
+  /*
+    $(function(){
+      jQuery(document).ready(function() {
+      $('#home').backstretch([
+        "images/cocktails/2-min-min.png", 
+        "images/cocktails/fotor6.jpg", 
+        "images/backgrounds/bg5.jpg", 
+        "images/cocktails/fotor10.jpg", 
+          ],  {duration: 3000, fade: 750});
+      });
+    })
+  */
+ $(function () {
+    var images = [];
+
+    if ($('body').hasClass('home-page')) {
+      images = [
+        "images/hero/2-min-min.png",
+        "images/hero/bg5.jpg",
+        "images/hero/fotor6.jpg",
+        "images/hero/PXL_20221203_152610209.MP.jpg"
+      ];
+    }else if ($('body').hasClass('review-page')) {
+      images = [
+        "images/hero/PXL_20221215_143207785.jpg",
+        "images/hero/PXL_20221224_172405456.PORTRAIT~2.jpg",
+        "images/hero/PXL_20221224_172935035.PORTRAIT~2.jpg",
+        "images/hero/PXL_20230304_090001094.PORTRAIT~2.jpg",
+        "images/hero/PXL_20240511_131513494.PORTRAIT~2.jpg"
+      ];
+    } else if ($('body').hasClass('gallery-page')) {
+      images = [
+        "images/hero/PXL_20221215_143207785.jpg",
+        "images/hero/PXL_20221224_172405456.PORTRAIT~2.jpg",
+        "images/hero/PXL_20221224_172935035.PORTRAIT~2.jpg",
+        "images/hero/PXL_20230304_090001094.PORTRAIT~2.jpg",
+        "images/hero/PXL_20240511_131513494.PORTRAIT~2.jpg"
+
+      ];
+    } else if ($('body').hasClass('request-page')) {
+      images = [
+        "images/hero/fotor6.jpg",
+        "images/hero/PXL_20221203_152610209.MP.jpg",
+        "images/hero/2-min-min.png",
+        "images/hero/bg5.jpg"
+      ];
+    }
+
+    if (images.length && $('#home').length) {
+      $('#home').backstretch(images, { duration: 3000, fade: 750 });
+    }
+  });
+
 
 
    /* Flexslider
