@@ -111,7 +111,8 @@ $(document).ready(function() {
       });
     })
   */
- $(function () {
+
+  $(function () {
     var images = [];
 
     if ($('body').hasClass('home-page')) {
@@ -121,7 +122,7 @@ $(document).ready(function() {
         "images/hero/fotor6.jpg",
         "images/hero/PXL_20221203_152610209.MP.jpg"
       ];
-    }else if ($('body').hasClass('review-page')) {
+    } else if ($('body').hasClass('review-page')) {
       images = [
         "images/hero/PXL_20221215_143207785.jpg",
         "images/hero/PXL_20221224_172405456.PORTRAIT~2.jpg",
@@ -136,7 +137,6 @@ $(document).ready(function() {
         "images/hero/PXL_20221224_172935035.PORTRAIT~2.jpg",
         "images/hero/PXL_20230304_090001094.PORTRAIT~2.jpg",
         "images/hero/PXL_20240511_131513494.PORTRAIT~2.jpg"
-
       ];
     } else if ($('body').hasClass('request-page')) {
       images = [
@@ -147,10 +147,14 @@ $(document).ready(function() {
       ];
     }
 
+    console.log("Images selected for slideshow:", images);
+    console.log("Does #home exist?", $('#home').length > 0);
+
     if (images.length && $('#home').length) {
       $('#home').backstretch(images, { duration: 3000, fade: 750 });
     }
   });
+
 
 
 
@@ -299,21 +303,27 @@ $(document).ready(function() {
     const triggerEl = document.querySelector(trigger);
     const targetEl = document.querySelector(target);
 
-    triggerEl.addEventListener('click', () => {
-      const isActive = triggerEl.classList.contains('active');
+    if (
+  document.body.classList.contains('home-page') ||
+  document.body.classList.contains('gallery-page')
+) {
+  triggerEl.addEventListener('click', () => {
+    const isActive = triggerEl.classList.contains('active');
 
-      // Hide all and remove active classes
-      buttons.forEach(({ trigger: t, target: tg, toggleClass: tc }) => {
-        document.querySelector(t).classList.remove('active');
-        document.querySelector(tg).classList.add(tc);
-      });
-
-      if (!isActive) {
-        triggerEl.classList.add('active');
-        targetEl.classList.remove(toggleClass);
-        setupPagination(target); // 🎯 Apply pagination to active group
-      }
+    // Hide all and remove active classes
+    buttons.forEach(({ trigger: t, target: tg, toggleClass: tc }) => {
+      document.querySelector(t).classList.remove('active');
+      document.querySelector(tg).classList.add(tc);
     });
+
+    if (!isActive) {
+      triggerEl.classList.add('active');
+      targetEl.classList.remove(toggleClass);
+      setupPagination(target); // 🎯 Apply pagination to active group
+    }
+  });
+}
+
   });
 
 
