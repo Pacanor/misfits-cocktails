@@ -140,7 +140,7 @@ a:focus {
 
 
 /* All Section styles */
-#upcoming-events,
+#events,
 #about,
 #feature,
 #video,
@@ -153,7 +153,7 @@ a:focus {
   padding-top: 100px;
   padding-bottom: 100px;
 }
-#upcoming-events,
+#events,
 #feature,
 #video,
 #team,
@@ -735,6 +735,7 @@ a:focus {
   height: 200px;
   display: block;
   object-fit: cover;
+  object-position: 0px 0px;
 }
 
 .footer-logo {
