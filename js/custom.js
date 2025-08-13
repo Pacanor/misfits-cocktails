@@ -40,12 +40,26 @@ jQuery(document).ready(function($){
         })
 
       });
+      // search 
+      $('#search-box').on('keyup', function () {
+      var searchText = $(this).val().toLowerCase();
+
+      $('.iso-box-wrapper .iso-box').each(function () {
+        var itemText = $(this).find('.gallery-item').text().toLowerCase();
+
+        if (itemText.includes(searchText)) {
+          $(this).show();
+        } else {
+          $(this).hide();
+        }
+      });
+    });
 
       //filter items on button click
 
-      $('.filter-wrapper li a').click(function(){
+      $('#filter-options').on('change', function () {
 
-          var $this = $(this), filterValue = $this.attr('data-filter');
+          var filterValue = $(this).val();
 
       $container.isotope({ 
         filter: filterValue,
@@ -54,7 +68,8 @@ jQuery(document).ready(function($){
             easing: 'linear', 
             queue: false, 
         }                
-      });             
+      });        
+      //search box
 
       // don't proceed if already selected 
 
@@ -117,10 +132,10 @@ $(document).ready(function() {
 
     if ($('body').hasClass('home-page')) {
       images = [
-        "images/hero/2-min-min.png",
-        "images/hero/bg5.jpg",
-        "images/hero/fotor6.jpg",
-        "images/hero/PXL_20221203_152610209.MP.jpg"
+        "images/hero/PXL_20240511_131513494.PORTRAIT~2.jpg",
+        "images/hero/PXL_20221224_172935035.PORTRAIT~2.jpg",
+        "images/hero/PXL_20221224_172405456.PORTRAIT~2.jpg",
+        "images/hero/PXL_20221215_143207785.jpg"
       ];
     } else if ($('body').hasClass('review-page')) {
       images = [

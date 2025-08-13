@@ -757,7 +757,7 @@ a:focus {
 
 /* Contact section  */
 #contact {
-  background: url('../images/backgrounds/bg10.jpg') 50% 0 repeat-y fixed;
+  background: url('../images/events/shaarz\ cosmetics\ product\ lauch\ east\ park\ mall/Shaarz Cosmetics product launch East Park mall 2.jpg') 50% 0 repeat-y fixed;
   -webkit-background-size: cover;
   background-size: cover;
   background-position: center center;
@@ -1242,3 +1242,58 @@ footer strong {
     margin-top: 0;
     margin-top: 0;
   }
+  .remove {
+    display: none !important;
+  }
+  /*gallery*/
+  .gallery-items {
+  column-count: 3;
+  column-gap: 1rem;
+  margin: 0 auto;
+  padding: 0;
+  height: auto !important;
+}
+
+.gallery-thumb {
+  break-inside: avoid;
+  margin: 0.5rem 0 !important; /* top and bottom spacing */
+}
+
+
+.gallery-thumb img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: contain;
+  border-radius: 12px;
+}
+
+.iso-box{
+  position:  relative !important;
+  min-height: none !important;
+  float: none !important;
+  overflow: visible;
+  margin-bottom: 0 !important;
+  top: unset !important;
+  left: unset !important;
+  right: unset !important;
+  bottom: unset !important;
+}
+
+
+/*upcoming events*/
+.upcoming-events-icon{
+  height: 250px;
+}
+.upcoming-events-icon img{
+  height: 100%
+}
+.upcoming-events-container + .upcoming-events-container {
+  margin-left: 20px;
+}
+@media (max-width: 750px) {
+  .upcoming-events-container {
+  margin-bottom: 20px;
+
+}
+}
