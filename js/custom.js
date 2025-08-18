@@ -133,9 +133,10 @@ $(document).ready(function() {
     if ($('body').hasClass('home-page')) {
       images = [
         "images/hero/PXL_20240511_131513494.PORTRAIT~2.jpg",
-        "images/hero/PXL_20221224_172935035.PORTRAIT~2.jpg",
-        "images/hero/PXL_20221224_172405456.PORTRAIT~2.jpg",
-        "images/hero/PXL_20221215_143207785.jpg"
+         "images/hero/request folder/PXL_20241123_161803880.MP.jpg",
+        "images/hero/request folder/PXL_20241213_195139349.PORTRAIT.jpg",
+        "images/hero/PXL_20221215_143207785.jpg",
+         
       ];
     } else if ($('body').hasClass('review-page')) {
       images = [
@@ -148,17 +149,17 @@ $(document).ready(function() {
     } else if ($('body').hasClass('gallery-page')) {
       images = [
         "images/hero/PXL_20221215_143207785.jpg",
-        "images/hero/PXL_20221224_172405456.PORTRAIT~2.jpg",
-        "images/hero/PXL_20221224_172935035.PORTRAIT~2.jpg",
-        "images/hero/PXL_20230304_090001094.PORTRAIT~2.jpg",
-        "images/hero/PXL_20240511_131513494.PORTRAIT~2.jpg"
+        "images/hero/request folder/PXL_20241123_161803880.MP.jpg",
+        "images/hero/request folder/PXL_20241213_195139349.PORTRAIT.jpg",
+        "images/hero/request folder/PXL_20221203_150414390.PORTRAIT.jpg",
+  
       ];
     } else if ($('body').hasClass('request-page')) {
       images = [
         "images/hero/fotor6.jpg",
         "images/hero/PXL_20221203_152610209.MP.jpg",
-        "images/hero/2-min-min.png",
-        "images/hero/bg5.jpg"
+        "images/hero/request folder/PXL_20241123_161803880.MP.jpg",
+        "images/hero/request folder/PXL_20241213_195139349.PORTRAIT.jpg"
       ];
     }
 
@@ -314,32 +315,84 @@ $(document).ready(function() {
     },
   ];
 
-  buttons.forEach(({ trigger, target, toggleClass }) => {
-    const triggerEl = document.querySelector(trigger);
-    const targetEl = document.querySelector(target);
+ // ID or class of your "See All" button
+const seeAllBtn = document.querySelector('#seeAllBtn');
 
-    if (
-  document.body.classList.contains('home-page') ||
-  document.body.classList.contains('gallery-page')
-) {
-  triggerEl.addEventListener('click', () => {
-    const isActive = triggerEl.classList.contains('active');
+buttons.forEach(({ trigger, target, toggleClass }) => {
+  const triggerEl = document.querySelector(trigger);
+  const targetEl = document.querySelector(target);
 
-    // Hide all and remove active classes
+  if (
+    document.body.classList.contains('home-page') ||
+    document.body.classList.contains('gallery-page')
+  ) {
+    // Normal click behavior
+    if (triggerEl) {
+      triggerEl.addEventListener('click', () => {
+        const isActive = triggerEl.classList.contains('active');
+
+        // Hide all and remove active classes
+        buttons.forEach(({ trigger: t, target: tg, toggleClass: tc }) => {
+          document.querySelector(t)?.classList.remove('active');
+          document.querySelector(tg)?.classList.add(tc);
+        });
+
+        if (!isActive) {
+          triggerEl.classList.add('active');
+          targetEl.classList.remove(toggleClass);
+
+          // Apply pagination
+          setupPagination(target);
+
+          // Scroll
+          document.querySelector(target)?.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
+
+          // Update See All button
+          if (seeAllBtn) {
+            const eventType = trigger.replace('.', '');
+            seeAllBtn.href = `./gallery.html?search=${eventType}`;
+          }
+        }
+      });
+    }
+
+    // ✅ Auto-run if we're on gallery page and URL has ?search=
+   // ✅ Auto-run if we're on gallery page and URL has ?search=
+if (document.body.classList.contains('gallery-page')) {
+  const params = new URLSearchParams(window.location.search);
+  const searchParam = params.get('search');
+  if (searchParam && trigger.replace('.', '') === searchParam) {
+    // Hide all first
     buttons.forEach(({ trigger: t, target: tg, toggleClass: tc }) => {
-      document.querySelector(t).classList.remove('active');
-      document.querySelector(tg).classList.add(tc);
+      document.querySelector(t)?.classList.remove('active');
+      document.querySelector(tg)?.classList.add(tc);
     });
 
-    if (!isActive) {
-      triggerEl.classList.add('active');
-      targetEl.classList.remove(toggleClass);
-      setupPagination(target); // 🎯 Apply pagination to active group
-    }
-  });
+    // Show the searched event
+    triggerEl?.classList.add('active');
+    targetEl?.classList.remove(toggleClass);
+
+    // Apply pagination
+    setupPagination(target);
+
+    // Delay scroll until after layout
+    setTimeout(() => {
+      document.querySelector(target)?.scrollIntoView({
+        behavior: 'smooth',
+        block: 'start'
+      });
+    }, 200);
+  }
 }
 
-  });
+  }
+});
+
+
+
 
 
 

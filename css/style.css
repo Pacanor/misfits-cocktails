@@ -1291,9 +1291,25 @@ footer strong {
 .upcoming-events-container + .upcoming-events-container {
   margin-left: 20px;
 }
+@media (max-width: 993px) {
+  .upcoming-events-container + .upcoming-events-container p:nth-child(2){
+    margin-bottom: 38px;
+  }
+}
 @media (max-width: 750px) {
   .upcoming-events-container {
-  margin-bottom: 20px;
-
-}
+    margin-bottom: 20px;
+  }
+  .upcoming-events-container {
+    margin-left: 20px;
+  }
+  .upcoming-events-container + .upcoming-events-container {
+    margin-top: 40px;
+  }
+  #gallery .gallery-thumb .gallery-overlay .has_album {
+    font-size: 16px;
+  }
+  .gallery-items {
+    column-count: 2;
+  }
 }
