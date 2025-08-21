@@ -763,7 +763,9 @@ a:focus {
   background-position: center center;
   position: relative;
 }
-
+#contact{
+    background-position: 88% 0 !important;
+}
 #contact .overlay {
   background: rgba(0, 0, 0, 0.7);
   width: 100%;
@@ -1302,6 +1304,7 @@ footer strong {
   }
   .upcoming-events-container {
     margin-left: 20px;
+    margin-right: 20px;
   }
   .upcoming-events-container + .upcoming-events-container {
     margin-top: 40px;

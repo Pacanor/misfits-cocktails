@@ -140,26 +140,25 @@ $(document).ready(function() {
       ];
     } else if ($('body').hasClass('review-page')) {
       images = [
-        "images/hero/PXL_20221215_143207785.jpg",
-        "images/hero/PXL_20221224_172405456.PORTRAIT~2.jpg",
-        "images/hero/PXL_20221224_172935035.PORTRAIT~2.jpg",
-        "images/hero/PXL_20230304_090001094.PORTRAIT~2.jpg",
-        "images/hero/PXL_20240511_131513494.PORTRAIT~2.jpg"
+       "images/hero/review folder/PXL_20241123_200600605.MP (1).jpg",
+       "images/hero/PXL_20221215_143207785.jpg",
+        "images/hero/request folder/PXL_20221104_163008369.NIGHT.jpg",
+        "images/hero/request folder/PXL_20221125_181919551.PORTRAIT.jpg",
       ];
     } else if ($('body').hasClass('gallery-page')) {
       images = [
-        "images/hero/PXL_20221215_143207785.jpg",
-        "images/hero/request folder/PXL_20241123_161803880.MP.jpg",
-        "images/hero/request folder/PXL_20241213_195139349.PORTRAIT.jpg",
-        "images/hero/request folder/PXL_20221203_150414390.PORTRAIT.jpg",
+        "images/events/christmas eve party 19th hole/PXL_20221125_175841755.MP.jpg",
+         "events/PXL_20221125_165540781.PORTRAIT~2.jpg",
+        "events/PXL_20240719_134655365.MP.jpg",
+        
+         "images/hero/request folder/PXL_20221104_163008369.NIGHT.jpg",
   
       ];
     } else if ($('body').hasClass('request-page')) {
       images = [
-        "images/hero/fotor6.jpg",
-        "images/hero/PXL_20221203_152610209.MP.jpg",
-        "images/hero/request folder/PXL_20241123_161803880.MP.jpg",
-        "images/hero/request folder/PXL_20241213_195139349.PORTRAIT.jpg"
+        "images/hero/review folder/PXL_20241213_194744487.PORTRAIT.jpg",
+        "images/hero/review folder/PXL_20241123_200600605.MP (1).jpg",
+        "images/hero/review folder/PXL_20240719_135628934.MP (1).jpg"
       ];
     }
 
@@ -326,70 +325,93 @@ buttons.forEach(({ trigger, target, toggleClass }) => {
     document.body.classList.contains('home-page') ||
     document.body.classList.contains('gallery-page')
   ) {
-    // Normal click behavior
     if (triggerEl) {
       triggerEl.addEventListener('click', () => {
-        const isActive = triggerEl.classList.contains('active');
+        const eventType = trigger.replace('.', ''); // e.g. absa_end_of_year_2022_events
 
-        // Hide all and remove active classes
-        buttons.forEach(({ trigger: t, target: tg, toggleClass: tc }) => {
-          document.querySelector(t)?.classList.remove('active');
-          document.querySelector(tg)?.classList.add(tc);
-        });
+        // ✅ Instead of toggling directly, redirect to gallery
+        if (document.body.classList.contains('home-page')) {
+          window.location.href = `./gallery.html?search=${eventType}`;
+          return;
+        }
 
-        if (!isActive) {
+        // ✅ If already on gallery page, just toggle & paginate
+        if (document.body.classList.contains('gallery-page')) {
+          // Hide all first
+          buttons.forEach(({ trigger: t, target: tg, toggleClass: tc }) => {
+            document.querySelector(t)?.classList.remove('active');
+            document.querySelector(tg)?.classList.add(tc);
+          });
+
           triggerEl.classList.add('active');
           targetEl.classList.remove(toggleClass);
 
           // Apply pagination
           setupPagination(target);
 
-          // Scroll
-          document.querySelector(target)?.scrollIntoView({
-            behavior: 'smooth',
-            block: 'start'
-          });
+          // Scroll into view
+          // Scroll with offset
+setTimeout(() => {
+  if (targetEl) {
+    const rect = targetEl.getBoundingClientRect();
+    const offset = -120; // adjust as needed
+    const top = rect.top + window.scrollY + offset;
 
-          // Update See All button
-          if (seeAllBtn) {
-            const eventType = trigger.replace('.', '');
-            seeAllBtn.href = `./gallery.html?search=${eventType}`;
-          }
+    window.scrollTo({
+      top,
+      behavior: 'smooth'
+    });
+  }
+}, 200);
+
         }
       });
     }
+  }
+});
 
-    // ✅ Auto-run if we're on gallery page and URL has ?search=
-   // ✅ Auto-run if we're on gallery page and URL has ?search=
+// ✅ Auto-run on gallery page if search param exists
 if (document.body.classList.contains('gallery-page')) {
   const params = new URLSearchParams(window.location.search);
   const searchParam = params.get('search');
-  if (searchParam && trigger.replace('.', '') === searchParam) {
-    // Hide all first
-    buttons.forEach(({ trigger: t, target: tg, toggleClass: tc }) => {
-      document.querySelector(t)?.classList.remove('active');
-      document.querySelector(tg)?.classList.add(tc);
-    });
+  if (searchParam) {
+    const btnConfig = buttons.find(({ trigger }) => trigger.replace('.', '') === searchParam);
+    if (btnConfig) {
+      const triggerEl = document.querySelector(btnConfig.trigger);
+      const targetEl = document.querySelector(btnConfig.target);
 
-    // Show the searched event
-    triggerEl?.classList.add('active');
-    targetEl?.classList.remove(toggleClass);
-
-    // Apply pagination
-    setupPagination(target);
-
-    // Delay scroll until after layout
-    setTimeout(() => {
-      document.querySelector(target)?.scrollIntoView({
-        behavior: 'smooth',
-        block: 'start'
+      // Hide all first
+      buttons.forEach(({ trigger: t, target: tg, toggleClass: tc }) => {
+        document.querySelector(t)?.classList.remove('active');
+        document.querySelector(tg)?.classList.add(tc);
       });
-    }, 200);
+
+      // Show the searched event
+      triggerEl?.classList.add('active');
+      targetEl?.classList.remove(btnConfig.toggleClass);
+
+      // Apply pagination
+      setupPagination(btnConfig.target);
+
+      // Delay scroll until after layout
+      // Delay scroll until after layout
+setTimeout(() => {
+  if (targetEl) {
+    const rect = targetEl.getBoundingClientRect();
+    const offset = -120; // 👈 adjust this number for more/less words above
+    const top = rect.top + window.scrollY + offset;
+
+    window.scrollTo({
+      top,
+      behavior: 'smooth'
+    });
+  }
+}, 200);
+
+    }
   }
 }
 
-  }
-});
 
 
 
