@@ -151,7 +151,7 @@ $(document).ready(function() {
          "events/PXL_20221125_165540781.PORTRAIT~2.jpg",
         "events/PXL_20240719_134655365.MP.jpg",
         
-         "images/hero/request folder/PXL_20221104_163008369.NIGHT.jpg",
+         "images/events/absa end of year 2022/PXL_20221215_143711683.jpg",
   
       ];
     } else if ($('body').hasClass('request-page')) {
