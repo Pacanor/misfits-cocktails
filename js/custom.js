@@ -127,48 +127,52 @@ $(document).ready(function() {
     })
   */
 
-  $(function () {
-    var images = [];
+$(function () {
+  var images = [];
 
-    if ($('body').hasClass('home-page')) {
-      images = [
-        "images/hero/PXL_20240511_131513494.PORTRAIT~2.jpg",
-         "images/hero/request folder/PXL_20241123_161803880.MP.jpg",
-        "images/hero/request folder/PXL_20241213_195139349.PORTRAIT.jpg",
-        "images/hero/PXL_20221215_143207785.jpg",
-         
-      ];
-    } else if ($('body').hasClass('review-page')) {
-      images = [
-       "images/hero/review folder/PXL_20241123_200600605.MP (1).jpg",
-       "images/hero/PXL_20221215_143207785.jpg",
-        "images/hero/request folder/PXL_20221104_163008369.NIGHT.jpg",
-        "images/hero/request folder/PXL_20221125_181919551.PORTRAIT.jpg",
-      ];
-    } else if ($('body').hasClass('gallery-page')) {
-      images = [
-        "images/events/christmas eve party 19th hole/PXL_20221125_175841755.MP.jpg",
-         "events/PXL_20221125_165540781.PORTRAIT~2.jpg",
-        "events/PXL_20240719_134655365.MP.jpg",
-        
-         "images/events/absa end of year 2022/PXL_20221215_143711683.jpg",
-  
-      ];
-    } else if ($('body').hasClass('request-page')) {
-      images = [
-        "images/hero/review folder/PXL_20241213_194744487.PORTRAIT.jpg",
-        "images/hero/review folder/PXL_20241123_200600605.MP (1).jpg",
-        "images/hero/review folder/PXL_20240719_135628934.MP (1).jpg"
-      ];
-    }
+  if ($('body').hasClass('home-page')) {
+    images = [
+      "images/hero/PXL_20240511_131513494.PORTRAIT~2.jpg",
+      "images/hero/request folder/PXL_20241123_161803880.MP.jpg",
+      "images/hero/request folder/PXL_20241213_195139349.PORTRAIT.jpg",
+      "images/hero/PXL_20221215_143207785.jpg",
+    ];
+  } else if ($('body').hasClass('review-page')) {
+    images = [
+      "images/hero/review folder/PXL_20241123_200600605.MP (1).jpg",
+      "images/hero/PXL_20221215_143207785.jpg",
+      "images/hero/request folder/PXL_20221104_163008369.NIGHT.jpg",
+      "images/hero/request folder/PXL_20221125_181919551.PORTRAIT.jpg",
+    ];
+  } else if ($('body').hasClass('gallery-page')) {
+    images = [
+      "images/events/christmas eve party 19th hole/PXL_20221125_175841755.MP.jpg",
+      "events/PXL_20221125_165540781.PORTRAIT~2.jpg",
+      "events/PXL_20240719_134655365.MP.jpg",
+      "images/events/absa end of year 2022/PXL_20221215_143711683.jpg",
+    ];
+  } else if ($('body').hasClass('request-page')) {
+    images = [
+      "images/hero/review folder/PXL_20241213_194744487.PORTRAIT.jpg",
+      "images/hero/review folder/PXL_20241123_200600605.MP (1).jpg",
+      "images/hero/review folder/PXL_20240719_135628934.MP (1).jpg"
+    ];
+  }
 
-    console.log("Images selected for slideshow:", images);
-    console.log("Does #home exist?", $('#home').length > 0);
+  console.log("Images selected for slideshow:", images);
 
-    if (images.length && $('#home').length) {
+  if (images.length && $('#home').length) {
+    // Preload first image only (lazy feel)
+    var firstImage = new Image();
+    firstImage.src = images[0];
+
+    firstImage.onload = function () {
+      // Start slideshow after first image is ready
       $('#home').backstretch(images, { duration: 3000, fade: 750 });
-    }
-  });
+    };
+  }
+});
+
 
 
 
