@@ -455,6 +455,12 @@ a:focus {
   background-color: #A52F3B;
 }
 
+#feature .feature-icon i {
+  color: #ffffff;
+  font-size: 36px;
+  line-height: 1;
+}
+
 #feature h3 {
   padding-top: 14px;
   padding-bottom: 10px;
