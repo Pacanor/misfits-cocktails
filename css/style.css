@@ -20,6 +20,25 @@ html {
   font-size: 100%;
 }
 
+/* Preserve aspect ratios — never stretch images */
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+img.img-responsive {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.brand-logo,
+.navbar-brand > img {
+  width: auto;
+  height: 45px;
+  object-fit: contain;
+}
+
 .hide {
   display: none;
 }
@@ -126,7 +145,7 @@ a:focus {
 }
 
 .parallax-section {
-  background-attachment: fixed !important;
+  background-attachment: scroll;
   background-size: cover !important;
 }
 
@@ -213,7 +232,9 @@ a:focus {
 }
 
 .icon-spinner {
+  width: auto;
   max-width: 80px;
+  height: auto;
   max-height: 80px;
 }
 
@@ -349,8 +370,9 @@ a:focus {
   position: relative;
   padding: 5px 15px 0px 15px;
   display: none;
+  width: auto;
   height: 45px;
-  /* width: 40px; */
+  object-fit: contain;
 }
 
 .brand-name {
@@ -422,27 +444,15 @@ a:focus {
   -moz-border-radius: 50%;
   -ms-border-radius: 50%;
   border-radius: 50%;
-  display: table;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   text-align: center;
   transition: all 0.4s ease-in-out;
 }
 
 #feature .feature-icon:hover {
   background-color: #A52F3B;
-}
-
-#feature .feature-icon span {
-  display: table-cell;
-  vertical-align: middle;
-}
-
-#feature .feature-icon .fa,
-.fa-regular,
-.fa-solid {
-  color: #ffffff;
-  font-size: 36px;
-  margin: 0;
-  padding: 0;
 }
 
 #feature h3 {
@@ -466,11 +476,21 @@ a:focus {
   padding-bottom: 2px;
 }
 
+#about .flexslider .slides img {
+  width: 100%;
+  height: auto;
+  max-height: 480px;
+  object-fit: contain;
+  object-position: center;
+  display: block;
+  margin: 0 auto;
+}
+
 
 
 /* Video section  */
 #video {
-  background: url('../images/video-bg.jpg') 50% 0 repeat-y fixed;
+  background: url('../images/backgrounds/bg10.webp') 50% 0 repeat-y scroll;
   -webkit-background-size: cover;
   background-size: cover;
   background-position: center center;
@@ -520,6 +540,7 @@ a:focus {
   padding-right: 12px;
   display: block;
   object-fit: cover;
+  object-position: center;
 }
 
 #menu .media-object span.menu-price {
@@ -547,8 +568,13 @@ a:focus {
   padding-bottom: 10px;
 }
 
-#team img {
+#team .team-thumb > img {
   width: 100%;
+  height: auto;
+  aspect-ratio: 3 / 4;
+  object-fit: cover;
+  object-position: center top;
+  display: block;
 }
 
 #team .team-thumb {
@@ -590,11 +616,6 @@ a:focus {
   height: 100%;
   box-sizing: border-box;
   display: block;
-}
-
-#team .join-team .fa {
-  font-size: 32px;
-  padding-bottom: 14px;
 }
 
 #team .join-team .btn {
@@ -726,38 +747,38 @@ a:focus {
 .iso-box>a {
   display: block;
   width: 100%;
-  height: 100%;
   overflow: hidden;
 }
 
 .fluid-img {
   width: 100%;
-  height: 200px;
+  aspect-ratio: 4 / 3;
+  height: auto;
   display: block;
   object-fit: cover;
-  object-position: 0px 0px;
+  object-position: center;
+}
+
+.footer-logo,
+.missing-logo {
+  width: auto;
+  max-width: 100%;
+  height: auto;
+  max-height: 180px;
+  display: block;
+  object-fit: contain;
+  object-position: center;
+  margin: 0 auto;
 }
 
 .footer-logo {
-  max-width: 100%;
-  height: 180px;
-  display: block;
-  object-fit: cover;
-  object-position: -7px -6px;
-}
-
-.missing-logo {
-  max-width: 100%;
-  height: 180px;
-  display: block;
-  object-fit: cover;
-  margin: auto;
+  object-position: center;
 }
 
 
 /* Contact section  */
 #contact {
-  background: url('../images/events/shaarz\ cosmetics\ product\ lauch\ east\ park\ mall/Shaarz Cosmetics product launch East Park mall 2.jpg') 50% 0 repeat-y fixed;
+  background: url('../images/team/say_hi.webp') 50% 0 repeat-y scroll;
   -webkit-background-size: cover;
   background-size: cover;
   background-position: center center;
@@ -784,7 +805,7 @@ a:focus {
 
 /* Call To Action section  */
 #cta {
-  background: url('../images/backgrounds/bg10.jpg') 50% 0 repeat-y fixed;
+  background: url('../images/backgrounds/bg10.webp') 50% 0 repeat-y scroll;
   -webkit-background-size: cover;
   background-size: cover;
   background-position: center center;
@@ -952,8 +973,6 @@ footer strong {
 
 .social-icon li a {
   border-radius: 100px;
-  color: #626262;
-  font-size: 18px;
   text-decoration: none;
   transition: all 0.4s ease-in-out;
   width: 35px;
@@ -964,7 +983,13 @@ footer strong {
   margin-right: 10px;
 }
 
-.social-icon li a:hover {
+/* Legacy text-based social links only — mc-icon uses mask in icons.css */
+.social-icon li a:not([class*="mc-icon-"]) {
+  color: #626262;
+  font-size: 18px;
+}
+
+.social-icon li a:not([class*="mc-icon-"]):hover {
   background: #111;
   color: #ffffff;
 }
@@ -1010,6 +1035,9 @@ footer strong {
 }
 
 @media (max-width: 767px) {
+  #about .flexslider .slides img {
+    max-height: 320px;
+  }
 
   #feature .col-md-4,
   #about .col-md-5,
@@ -1063,8 +1091,20 @@ footer strong {
     padding-bottom: 80px;
   }
 
+  #menu .media-object {
+    float: none !important;
+    text-align: center;
+    margin-bottom: 12px;
+  }
+
   #menu .media-object img {
-    width: 100%;
+    width: 150px;
+    height: 150px;
+    max-width: 100%;
+    margin: 0 auto;
+    padding-right: 0;
+    object-fit: cover;
+    object-position: center;
   }
 
 
@@ -1233,12 +1273,19 @@ footer strong {
   .upcoming-events-container p{
     padding: 0 15px;
   }
-  .upcoming-events-icon{
+  .upcoming-events-icon {
     width: 100%;
     margin: 0;
+    height: 250px;
+    overflow: hidden;
   }
-  .upcoming-events-icon img{
+
+  .upcoming-events-icon img {
     width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
   }
   .upcoming-events-thumb{
     margin-top: 0;
@@ -1266,7 +1313,8 @@ footer strong {
   width: 100%;
   height: auto;
   display: block;
-  object-fit: contain;
+  object-fit: cover;
+  object-position: center;
   border-radius: 12px;
 }
 
@@ -1284,11 +1332,17 @@ footer strong {
 
 
 /*upcoming events*/
-.upcoming-events-icon{
+.upcoming-events-icon {
   height: 250px;
+  overflow: hidden;
 }
-.upcoming-events-icon img{
-  height: 100%
+
+.upcoming-events-icon img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
 }
 .upcoming-events-container + .upcoming-events-container {
   margin-left: 20px;
@@ -1315,4 +1369,117 @@ footer strong {
   .gallery-items {
     column-count: 2;
   }
+}
+
+/* Lightbox — fit image to viewport, centered */
+.nivo-lightbox-overlay {
+  overflow: hidden;
+}
+
+.nivo-lightbox-wrap {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 48px;
+  box-sizing: border-box;
+}
+
+.nivo-lightbox-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  max-width: 100%;
+  max-height: 100%;
+  overflow: visible;
+}
+
+.nivo-lightbox-image,
+.lightbox-stage {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  width: 100% !important;
+  height: 100% !important;
+  max-width: 100% !important;
+  max-height: 100% !important;
+  line-height: normal !important;
+  text-align: center;
+}
+
+.lightbox-stage {
+  position: relative;
+  perspective: 1400px;
+  transform-style: preserve-3d;
+}
+
+.lightbox-photo {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  transform-origin: center center;
+  border-radius: 12px;
+  overflow: hidden;
+  will-change: transform, opacity;
+  transition:
+    transform 0.36s cubic-bezier(0.4, 0, 0.2, 1),
+    opacity 0.36s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.28);
+}
+
+.lightbox-photo img,
+.nivo-lightbox-image img {
+  display: block;
+  width: auto !important;
+  height: auto !important;
+  max-width: calc(100vw - 96px);
+  max-height: calc(100vh - 96px);
+  object-fit: contain;
+  object-position: center center;
+  margin: 0 auto;
+  border-radius: 12px;
+}
+
+.lightbox-photo.is-active {
+  opacity: 1;
+  transform: translate(-50%, -50%) translateX(0) scale(1) translateZ(0);
+  z-index: 3;
+}
+
+.lightbox-photo.is-entering-next {
+  opacity: 0;
+  transform: translate(-50%, -50%) translateX(11%) scale(0.9) translateZ(-70px);
+  z-index: 2;
+}
+
+.lightbox-photo.is-entering-prev {
+  opacity: 0;
+  transform: translate(-50%, -50%) translateX(-11%) scale(0.9) translateZ(-70px);
+  z-index: 2;
+}
+
+.lightbox-photo.is-exiting-next {
+  opacity: 0;
+  transform: translate(-50%, -50%) translateX(-9%) scale(0.84) translateZ(-110px);
+  z-index: 1;
+}
+
+.lightbox-photo.is-exiting-prev {
+  opacity: 0;
+  transform: translate(-50%, -50%) translateX(9%) scale(0.84) translateZ(-110px);
+  z-index: 1;
+}
+
+.lightbox-photo.is-idle-behind {
+  opacity: 0;
+  transform: translate(-50%, -50%) scale(0.82) translateZ(-120px);
+  z-index: 0;
+  pointer-events: none;
 }

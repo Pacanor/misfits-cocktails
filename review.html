@@ -10,7 +10,7 @@
   <meta name="og:title" content="Reviews - Misfits Cocktails">
   <meta name="og:url" content="https://misfitscocktails.com/review.html">
   <meta name="og:description" content="hare your thoughts on MISFITS Cocktails from one MISFIT to another.">
-  <meta name="og:image" content="https://www.misfitscocktails.com/images/cocktails/fotor3.jpg">
+  <meta name="og:image" content="https://www.misfitscocktails.com/images/cocktails/fotor3.webp">
   <meta name="og:type" content="website">
 
   <!-- Twitter SEO Fields  -->
@@ -27,12 +27,9 @@
   <meta name="description" content="">
 
   <!-- stylesheets css -->
-  <link rel="stylesheet" href="./assets/fontawesome/css/all.css">
+  <link rel="stylesheet" href="css/icons.css">
   <link rel="stylesheet" href="css/bootstrap.min.css">
-
-  <link rel="stylesheet" href="css/magnific-popup.css">
-
-  <link rel="stylesheet" href="css/animate.min.css">
+<link rel="stylesheet" href="css/animate.min.css">
 
   <link rel="stylesheet" href="css/nivo-lightbox.css">
   <link rel="stylesheet" href="css/nivo_themes/default/default.css">
@@ -42,8 +39,9 @@
 
   <link rel="stylesheet" href="css/style.css">
 
-  <link href='https://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
-  <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,300,600' rel='stylesheet' type='text/css'>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Source+Sans+Pro:wght@300;400;600&display=swap" rel="stylesheet">
 
 </head>
 
@@ -83,12 +81,12 @@
 
       <div class="navbar-header" itemscope itemtype="https://schema.org/BarOrPub">
         <button class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-          <span class="icon icon-bar"></span>
-          <span class="icon icon-bar"></span>
-          <span class="icon icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
         </button>
         <a href="#top" class="navbar-brand">
-          <img src="images/logos/mc-icon.jpeg" class="brand-logo" alt="Misfits Cocktails Logo">
+          <img loading="lazy" decoding="async" src="images/logos/mc-icon.webp" class="brand-logo" alt="Misfits Cocktails Logo">
           <span class="brand-name" itemprop="name">Misfits <span class="fw-200 accent">Cocktails</span>
         </a>
       </div>
@@ -123,7 +121,7 @@
       <div class="row" itemscope itemtype="https://schema.org/BarOrPub">
 
         <div class="wow fadeInUp col-md-4 col-sm-4 flex" data-wow-delay="0.3s">
-          <img src="images/logos/Misfits logo black.png" class="footer-logo" alt="Misfits Cocktails Logo"
+          <img loading="lazy" decoding="async" src="images/logos/Misfits logo black.png" class="footer-logo" alt="Misfits Cocktails Logo"
             itemprop="logo">
         </div>
 
@@ -131,11 +129,11 @@
           <h3 itemprop="name">Misfits Cocktails</h3>
           <p class="bright">The freshest drinks on the block.</p>
           <ul class="social-icon text-center" itemscope itemtype="https://schema.org/contactPoints">
-            <li><a itemprop="telephone" href="tel:260979192450" class="fa-solid fa-phone"></a></li>
-            <li><a itemprop="contactPoint" href="https://wa.me/+260979192450" class="fa-brands fa-whatsapp"></a></li>
+            <li><a itemprop="telephone" href="tel:260979192450" class="mc-icon mc-icon-phone" aria-label="Phone"></a></li>
+            <li><a itemprop="contactPoint" href="https://wa.me/+260979192450" class="mc-icon mc-icon-whatsapp" aria-label="WhatsApp"></a></li>
             <li><a itemprop="contactPoint" href="https://www.instagram.com/misfits_cocktails"
-                class="fa-brands fa-instagram"></a></li>
-            <li><a itemprop="email" href="mailto:contact@misfitscocktails.com" class="fa-regular fa-envelope"></a></li>
+                class="mc-icon mc-icon-instagram" aria-label="Instagram"></a></li>
+            <li><a itemprop="email" href="mailto:contact@misfitscocktails.com" class="mc-icon mc-icon-envelope" aria-label="Email"></a></li>
           </ul>
         </div>
 
@@ -176,33 +174,22 @@
         </div>
 
         <div class="col-md-1 col-sm-2 text-right">
-          <a href="#home" class="fa fa-angle-up smoothScroll gototop"></a>
+          <a href="#home" class="smoothScroll gototop" aria-label="Back to top"><span class="mc-icon mc-icon-angle-up"></span></a>
         </div>
 
       </div>
     </div>
   </section>
 
-  <!-- javscript js -->
-  <script src="js/jquery.js"></script>
-  <script src="js/bootstrap.min.js"></script>
-
-  <script src="js/jquery.magnific-popup.min.js"></script>
-
-  <script src="js/jquery.sticky.js"></script>
-  <script src="js/jquery.backstretch.min.js"></script>
-
-  <script src="js/isotope.js"></script>
-  <script src="js/imagesloaded.min.js"></script>
-  <script src="js/nivo-lightbox.min.js"></script>
-
-  <script src="js/jquery.flexslider-min.js"></script>
-
-  <script src="js/jquery.parallax.js"></script>
-  <script src="js/smoothscroll.js"></script>
-  <script src="js/wow.min.js"></script>
-
-  <script src="js/custom.js"></script>
+   <!-- javascript -->
+  <script src="js/jquery.js" defer></script>
+  <script src="js/bootstrap.min.js" defer></script>
+  <script src="js/jquery.sticky.js" defer></script>
+  <script src="js/jquery.backstretch.min.js" defer></script>
+  <script src="js/jquery.parallax.js" defer></script>
+  <script src="js/smoothscroll.js" defer></script>
+  <script src="js/wow.min.js" defer></script>
+  <script src="js/custom.js" defer></script>
   <script src="https://www.cognitoforms.com/f/iframe.js"></script>
 
 
